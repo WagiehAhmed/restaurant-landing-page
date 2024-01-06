@@ -1,0 +1,88 @@
+import { useMediaQuery } from "@mui/material";
+import React from "react";
+import { theme } from "./../../Styles/themes";
+import {
+  Container,
+  MenuContainer,
+} from "../../Styles/menu";
+import MenuItem from "./MenuItem";
+import { SectionSubTitle, SectionTitle, TitlesContainer } from "../../Styles/common";
+
+export default function Menu({reff}) {
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const items = [
+    {
+      image: "./images/1.jpg",
+      name: "testy food",
+      price: "$150.50",
+    },
+    {
+      image: "./images/2.jpg",
+      name: "testy food",
+      price: "$150.50",
+    },
+    {
+      image: "./images/3.jpg",
+      name: "testy food",
+      price: "$150.50",
+    },
+    {
+      image: "./images/4.jpg",
+      name: "testy food",
+      price: "$150.50",
+    },
+    {
+      image: "./images/5.jpg",
+      name: "testy food",
+      price: "$150.50",
+    },
+    {
+      image: "./images/6.jpg",
+      name: "testy food",
+      price: "$150.50",
+    },
+    {
+      image: "./images/7.jpg",
+      name: "testy food",
+      price: "$150.50",
+    },
+    {
+      image: "./images/8.jpg",
+      name: "testy food",
+      price: "$150.50",
+    },
+    {
+      image: "./images/9.jpg",
+      name: "testy food",
+      price: "$150.50",
+    },
+    {
+      image: "./images/10.jpg",
+      name: "testy food",
+      price: "$150.50",
+    },
+    {
+      image: "./images/11.jpg",
+      name: "testy food",
+      price: "$150.50",
+    },
+  ];
+  return (
+    <Container ref={reff}>
+      <TitlesContainer>
+        <SectionTitle>our menu</SectionTitle>
+        <SectionSubTitle>today's spesciality</SectionSubTitle>
+      </TitlesContainer>
+
+      <MenuContainer
+        container
+        columns={{ xs: 4, sm: 8, md: 12 }}
+        matches={matches}
+      >
+        {items.map((item) => (
+          <MenuItem item={item} key={item.image} matches={matches} />
+        ))}
+      </MenuContainer>
+    </Container>
+  );
+}
