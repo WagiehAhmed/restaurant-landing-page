@@ -17,7 +17,9 @@ import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import HeadsetMicIcon from "@mui/icons-material/HeadsetMic";
 import { SectionSubTitle, SectionTitle, TitlesContainer } from "../../Styles/common";
-function About({ reff }) {
+
+export default  React.forwardRef(({reff})=>{
+  
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Container ref={reff}>
@@ -62,7 +64,9 @@ function About({ reff }) {
         </AboutItemContent>
       </AboutItem>
     </Container>
-  );
-}
+  )
 
-export default  React.forwardRef(About);
+
+})
+
+
