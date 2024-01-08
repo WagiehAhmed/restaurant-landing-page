@@ -24,7 +24,7 @@ function App() {
       <Toolbar/>
       <Home reff={homeRef}/>
       <Deshes reff={deshesRef}/>
-      <About ref={aboutRef}/>
+      <About reff={aboutRef}/>
       <Menu reff={menuRef}/>
       <Reviews reff={reviewsRef}/>
       <Order reff={orderRef}/>

@@ -94,7 +94,7 @@ export default function Appbar({ reffs }) {
           <IconButton color="inherit">
             <RestaurantIcon color="success" />
           </IconButton>
-          <LogoTitleContainer variant="h5">resto.2</LogoTitleContainer>
+          <LogoTitleContainer variant="h5">resto.</LogoTitleContainer>
         </LogoActions>
         <NavItems matches={matches}>
           {["home", "dishes", "aboutus", "menu", "reviews", "order"].map(
