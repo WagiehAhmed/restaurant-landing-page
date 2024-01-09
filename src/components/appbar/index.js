@@ -107,6 +107,7 @@ export default function Appbar({ scrollTo }) {
               </NavItem>
             )
           )}
+          
         </NavItems>
         <NavActions>
           <IconContainer matches={true} onClick={openSearchDialog}>
