@@ -33,7 +33,7 @@ import {
 } from "../../Styles/appbar";
 
 
-export default function Appbar({ reffs }) {
+export default function Appbar({ scrollTo }) {
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("home");
@@ -85,10 +85,7 @@ export default function Appbar({ reffs }) {
         </IconContainer>
         <LogoActions
           onClick={() =>
-            reffs[0].current.scrollIntoView({
-              behavior: "smooth",
-              block: "center",
-            })
+            scrollTo(0)
           }
         >
           <IconButton color="inherit">
@@ -103,10 +100,7 @@ export default function Appbar({ reffs }) {
                 key={item}
                 sx={{backgroundColor:active===item?`${colors.green}`:"transparent",color:active===item?`${colors.white}`:`${colors.primaryText}`}}
                 onClick={() => {
-                  reffs[index].current.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center",
-                  });
+                  scrollTo(index)
                   setActive(item);
                 }}>
                 {item}
@@ -151,12 +145,9 @@ export default function Appbar({ reffs }) {
                       backgroundColor:active===item?`${colors.green}`:"",
                     }
                   }}
-                    onClick={() => {
-                      reffs[index].current.scrollIntoView({
-                        behavior: "smooth",
-                        block: "end",
-                      });
-                      setActive(item);
+                 onClick={() => {
+                  scrollTo(index)
+                    setActive(item);
                       closeDrawer();
                     }}
                   >

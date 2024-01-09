@@ -16,11 +16,19 @@ function App() {
   const menuRef = useRef();
   const reviewsRef = useRef();
   const orderRef = useRef();
+  const refs = [homeRef,deshesRef,aboutRef,menuRef,reviewsRef,orderRef]
+  const scrollTo = (index) => {
+    refs[index].current.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  }
   
   return (
     // window.scrollTo({ top: orderRef.current.offsetTop, behavior: "smooth" })
     <Box>
-      <Appbar reffs={[homeRef,deshesRef,aboutRef,menuRef,reviewsRef,orderRef]}/>
+      {/* <Appbar reffs={[homeRef,deshesRef,aboutRef,menuRef,reviewsRef,orderRef]}/> */}
+      <Appbar scrollTo={scrollTo}/>
       <Toolbar/>
       <Home reff={homeRef}/>
       <Deshes reff={deshesRef}/>
