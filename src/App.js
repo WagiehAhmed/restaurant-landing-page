@@ -22,6 +22,7 @@ function App() {
       behavior: "smooth",
       block: "center",
     });
+    alert(index);
   }
   
   return (
