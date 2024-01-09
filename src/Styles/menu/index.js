@@ -91,7 +91,7 @@ position: "relative",
   
 export const IconContainer = styled(IconButton)(() => ({
   position: "absolute",
-  top: "15px",
+  bottom: "15px",
   right: "-50px",
   width: "45px",
   height: "45px",
