@@ -30,12 +30,12 @@ function App() {
       {/* <Appbar reffs={[homeRef,deshesRef,aboutRef,menuRef,reviewsRef,orderRef]}/> */}
       <Appbar scrollTo={scrollTo}/>
       <Toolbar/>
-      <Home reff={homeRef}/>
-      <Deshes reff={deshesRef}/>
-      <About reff={aboutRef}/>
-      <Menu reff={menuRef}/>
-      <Reviews reff={reviewsRef}/>
-      <Order reff={orderRef}/>
+      <Home ref={homeRef}/>
+      <Deshes ref={deshesRef}/>
+      <About ref={aboutRef}/>
+      <Menu ref={menuRef}/>
+      <Reviews ref={reviewsRef}/>
+      <Order ref={orderRef}/>
       <Footer/>
     </Box>
   );

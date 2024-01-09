@@ -8,7 +8,7 @@ import { useMediaQuery } from "@mui/material";
 import { theme } from './../../Styles/themes';
 import { SectionSubTitle, SectionTitle, TitlesContainer } from "../../Styles/common";
 
-export default function Deshes({reff}) {
+const Deshes = (props,ref) => {
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   const items = [
     {
@@ -43,7 +43,7 @@ export default function Deshes({reff}) {
     },
   ];
   return (
-    <Container ref={reff}>
+    <Container ref={ref}>
       <TitlesContainer>
 
         <SectionTitle>our dishes</SectionTitle>
@@ -57,3 +57,6 @@ export default function Deshes({reff}) {
     </Container>
   );
 }
+
+
+export default React.forwardRef(Deshes);

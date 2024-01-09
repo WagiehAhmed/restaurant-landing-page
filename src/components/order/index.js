@@ -13,11 +13,10 @@ import {
 // import { AccountCircle } from "@mui/icons-material";
 import { theme } from "./../../Styles/themes";
 import { SectionSubTitle, SectionTitle, TitlesContainer } from "../../Styles/common";
-
-export default function Order({ reff }) {
+const Order = (props,ref) => {
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
-    <OrederContainer ref={reff}>
+    <OrederContainer ref={ref}>
       <TitlesContainer>
         <SectionTitle>order now</SectionTitle>
         <SectionSubTitle>free and fast</SectionSubTitle>
@@ -75,3 +74,5 @@ export default function Order({ reff }) {
     </OrederContainer>
   );
 }
+
+export default React.forwardRef(Order);

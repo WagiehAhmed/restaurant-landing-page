@@ -20,10 +20,10 @@ import { SectionSubTitle, SectionTitle, TitlesContainer } from "../../Styles/com
 
 
 
-export default function About({ reff }) {
+const About = (props,ref) => {
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
-    <Container ref={reff}>
+    <Container ref={ref}>
       <TitlesContainer>
         <SectionTitle>about us</SectionTitle>
         <SectionSubTitle>why choose us?</SectionSubTitle>
@@ -67,3 +67,6 @@ export default function About({ reff }) {
     </Container>
   );
 }
+
+
+export default React.forwardRef(About);

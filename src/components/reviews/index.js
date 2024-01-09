@@ -8,7 +8,7 @@ import {
 import ReviewItem from "./ReviewItem";
 import { SectionSubTitle, SectionTitle, TitlesContainer } from "../../Styles/common";
 
-export default function Reviews({reff}) {
+const Reviews = (props,ref) => {
   const matches = useMediaQuery(theme.breakpoints.down("md"));
 
   const items = [
@@ -57,7 +57,7 @@ export default function Reviews({reff}) {
   };
 
   return (
-    <ReviewsContainer ref={reff}>
+    <ReviewsContainer ref={ref}>
       <TitlesContainer>
         <SectionTitle>customer's review</SectionTitle>
         <SectionSubTitle>what thery say</SectionSubTitle>
@@ -73,3 +73,5 @@ export default function Reviews({reff}) {
     </ReviewsContainer>
   );
 }
+
+export default React.forwardRef(Reviews);

@@ -5,7 +5,7 @@ import { theme } from "../../Styles/themes";
 import Item from "./Item";
 import { HomeContainer } from "../../Styles/home";
 
-export default function Home({reff}) {
+const Home = (props,ref) => {
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   const items = [
     { title: "hot pizza", image: "./images/pasta.png" },
@@ -23,7 +23,7 @@ export default function Home({reff}) {
     autoplaySpeed: 3000,
   };
   return (
-    <HomeContainer ref={reff}>
+    <HomeContainer ref={ref}>
       <Slider {...settings}>
         {
           items.map((item)=>(
@@ -34,3 +34,6 @@ export default function Home({reff}) {
     </HomeContainer>
   );
 }
+
+
+export default React.forwardRef(Home);

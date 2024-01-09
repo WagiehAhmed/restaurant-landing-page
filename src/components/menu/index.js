@@ -8,7 +8,7 @@ import {
 import MenuItem from "./MenuItem";
 import { SectionSubTitle, SectionTitle, TitlesContainer } from "../../Styles/common";
 
-export default function Menu({reff}) {
+const Menu = (props,ref) => {
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   const items = [
     {
@@ -68,7 +68,7 @@ export default function Menu({reff}) {
     },
   ];
   return (
-    <Container ref={reff}>
+    <Container ref={ref}>
       <TitlesContainer>
         <SectionTitle>our menu</SectionTitle>
         <SectionSubTitle>today's spesciality</SectionSubTitle>
@@ -86,3 +86,5 @@ export default function Menu({reff}) {
     </Container>
   );
 }
+
+export default React.forwardRef(Menu);
