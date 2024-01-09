@@ -108,7 +108,6 @@ export default function Appbar({ scrollTo }) {
             )
           )}
         </NavItems>
-
         <NavActions>
           <IconContainer matches={true} onClick={openSearchDialog}>
             <SearchIcon />
@@ -117,7 +116,7 @@ export default function Appbar({ scrollTo }) {
             <FavoriteIcon />
           </IconContainer>
           <IconContainer matches={true}>
-            <Badge badgeContent={4} color="secondary">
+            <Badge badgeContent={0} color="secondary">
               <ShoppingCartIcon />
             </Badge>
           </IconContainer>
