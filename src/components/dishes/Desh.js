@@ -33,20 +33,14 @@ export default function Desh({item,matches}) {
           </DeshName>
           <Rating defaultValue={2} precision={1}/>
         </DeshCardContent>
-        <DeshActions>
+        <DeshActions >
           <DeshActionsPrice variant="text">{item.price}</DeshActionsPrice>
-          <DeshActionsAddToCard size="small">add to card</DeshActionsAddToCard>
+          {/* <DeshActionsAddToCard size="small">add to card</DeshActionsAddToCard> */}
         </DeshActions>
 
-        <IconContainer matches={true} className="addToCard">
+        <IconContainer className="addToCard">
               <ShoppingCartIcon />
           </IconContainer>
-
-
-
-
-
-
       </DeshCard>
     </DeshContainer>
   );

@@ -23,7 +23,7 @@ export const DeshContainer = styled(Grid)(({ matches }) => ({
 }));
 export const DeshCard = styled(Card)(() => ({
   position: "relative",
-  border: "5px solid red",
+  // border: "5px solid red",
   maxWidth: "400px",
   margin: "0px auto",
 
@@ -51,7 +51,7 @@ export const DeshName = styled(Typography)(() => ({
 }));
 
 export const DeshActions = styled(CardActions)(() => ({
-  justifyContent: "space-evenly",
+  justifyContent: "center",
 }));
 
 export const DeshActionsPrice = styled(Button)(() => ({
@@ -74,10 +74,7 @@ export const DeshActionsAddToCard = styled(Button)(() => ({
   },
 }));
 
-export const IconContainer = styled(IconButton)(({ matches }) => ({
-  // display: matches ? "block" : "none",
-  // margin: "1px",
-
+export const IconContainer = styled(IconButton)(() => ({
   position: "absolute",
   top: "10px",
   right: "-50px",

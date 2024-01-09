@@ -6,6 +6,7 @@ import {
     CardContent,
     CardMedia,
     Grid,
+    IconButton,
     Typography,
     styled,
   } from "@mui/material";
@@ -28,6 +29,14 @@ import {
     padding:"10px",
     maxWidth: "400px",
     margin: "0px auto",
+position: "relative",
+  // border: "5px solid red",
+
+  "&:hover": {
+    ".addToCard":{
+      right: "15px",
+    }
+  },
   
   }));
   export const MenuItemCardMedia = styled(CardMedia)(({ image, title }) => ({
@@ -56,7 +65,7 @@ import {
   }));
 
   export const MenuItemActions = styled(CardActions)(() => ({
-    justifyContent:"space-evenly",
+    justifyContent:"flex-start",
   }));
   
   export const MenuItemActionsPrice = styled(Button)(() => ({
@@ -78,3 +87,20 @@ import {
     },
   }));
   
+
+  
+export const IconContainer = styled(IconButton)(() => ({
+  position: "absolute",
+  top: "15px",
+  right: "-50px",
+  width: "45px",
+  height: "45px",
+  transition:"0.5s ease",
+
+  backgroundColor: `${colors.iconContainer}`,
+  color: `${colors.primaryText}`,
+  "&:hover": {
+    backgroundColor: `${colors.green}`,
+    color: `${colors.white}`,
+  },
+}));
