@@ -12,17 +12,10 @@ import Footer from "./components/footer";
 function App() {
   const refs = [useRef(),useRef(),useRef(),useRef(),useRef(),useRef()]
   const scrollTo = (index) => {
-    // refs[index].current.scrollIntoView({
-    //   behavior: "smooth",
-    //   block: "center",
-    // });
-
     window.scrollTo({ top: refs[index].current.offsetTop, behavior: "smooth" })
-    // alert(index);
   }
   
   return (
-    // window.scrollTo({ top: orderRef.current.offsetTop, behavior: "smooth" })
     <Box>
       <Appbar scrollTo={scrollTo}/>
       <Toolbar/>

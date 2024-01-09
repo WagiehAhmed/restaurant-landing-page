@@ -66,7 +66,7 @@ export const IconContainer = styled(IconButton)(({ matches }) => ({
   color: `${colors.primaryText}`,
   width: "40px",
   height: "40px",
-  display: matches ? "block" : "block",
+  display: matches ? "block" : "none",
   backgroundColor: `${colors.iconContainer}`,
   margin: "1px",
   "&:hover": {
