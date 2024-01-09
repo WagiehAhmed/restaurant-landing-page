@@ -6,11 +6,11 @@ import {
   CardContent,
   CardMedia,
   Grid,
+  IconButton,
   Typography,
   styled,
 } from "@mui/material";
 import { colors } from "../themes";
-
 
 export const Container = styled(Box)(() => ({
   backgroundColor: "#EEE",
@@ -22,8 +22,17 @@ export const DeshContainer = styled(Grid)(({ matches }) => ({
   padding: matches ? "15px" : "30px",
 }));
 export const DeshCard = styled(Card)(() => ({
+  position: "relative",
+  border: "5px solid red",
   maxWidth: "400px",
   margin: "0px auto",
+
+
+  "&:hover": {
+    ".addToCard":{
+      right: "10px",
+    }
+  },
 }));
 export const DeshCardMedia = styled(CardMedia)(({ image, title }) => ({
   height: "200px",
@@ -42,7 +51,7 @@ export const DeshName = styled(Typography)(() => ({
 }));
 
 export const DeshActions = styled(CardActions)(() => ({
-  justifyContent:"space-evenly",
+  justifyContent: "space-evenly",
 }));
 
 export const DeshActionsPrice = styled(Button)(() => ({
@@ -56,11 +65,30 @@ export const DeshActionsPrice = styled(Button)(() => ({
 export const DeshActionsAddToCard = styled(Button)(() => ({
   backgroundColor: `${colors.primaryText}`,
   textTransform: "capitalize",
-  width:"fit-content",  
-   color: `${colors.white}`,
+  width: "fit-content",
+  color: `${colors.white}`,
 
   "&:hover": {
     backgroundColor: `${colors.green}`,
-    letterSpacing: "1px"
+    letterSpacing: "1px",
+  },
+}));
+
+export const IconContainer = styled(IconButton)(({ matches }) => ({
+  // display: matches ? "block" : "none",
+  // margin: "1px",
+
+  position: "absolute",
+  top: "10px",
+  right: "-50px",
+  width: "45px",
+  height: "45px",
+  transition:"0.5s ease",
+
+  backgroundColor: `${colors.iconContainer}`,
+  color: `${colors.primaryText}`,
+  "&:hover": {
+    backgroundColor: `${colors.green}`,
+    color: `${colors.white}`,
   },
 }));
