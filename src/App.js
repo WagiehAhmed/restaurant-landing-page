@@ -10,13 +10,7 @@ import { useRef } from "react";
 import Footer from "./components/footer";
 
 function App() {
-  const homeRef = useRef();
-  const deshesRef = useRef();
-  const aboutRef = useRef();
-  const menuRef = useRef();
-  const reviewsRef = useRef();
-  const orderRef = useRef();
-  const refs = [homeRef,deshesRef,aboutRef,menuRef,reviewsRef,orderRef]
+  const refs = [useRef(),useRef(),useRef(),useRef(),useRef(),useRef()]
   const scrollTo = (index) => {
     refs[index].current.scrollIntoView({
       behavior: "smooth",
@@ -31,12 +25,12 @@ function App() {
       {/* <Appbar reffs={[homeRef,deshesRef,aboutRef,menuRef,reviewsRef,orderRef]}/> */}
       <Appbar scrollTo={scrollTo}/>
       <Toolbar/>
-      <Home ref={homeRef}/>
-      <Deshes ref={deshesRef}/>
-      <About ref={aboutRef}/>
-      <Menu ref={menuRef}/>
-      <Reviews ref={reviewsRef}/>
-      <Order ref={orderRef}/>
+      <Home ref={refs[0]}/>
+      <Deshes ref={refs[1]}/>
+      <About ref={refs[2]}/>
+      <Menu ref={refs[3]}/>
+      <Reviews ref={refs[4]}/>
+      <Order ref={refs[5]}/>
       <Footer/>
     </Box>
   );
