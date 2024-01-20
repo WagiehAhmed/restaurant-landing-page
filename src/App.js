@@ -8,6 +8,8 @@ import Reviews from "./components/reviews";
 import Order from "./components/order";
 import { useRef } from "react";
 import Footer from "./components/footer";
+import { CustomAnimationBox } from "./Styles/common";
+
 
 function App() {
   const refs = [useRef(),useRef(),useRef(),useRef(),useRef(),useRef()]
@@ -19,6 +21,7 @@ function App() {
     <Box>
       <Appbar scrollTo={scrollTo}/>
       <Toolbar/>
+      <CustomAnimationBox className="anvv"/>
       <Home ref={refs[0]}/>
       <Deshes ref={refs[1]}/>
       <About ref={refs[2]}/>

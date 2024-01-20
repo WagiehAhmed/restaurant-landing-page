@@ -1,9 +1,12 @@
 import {
   AppBar,
   Badge,
+  Button,
   Dialog,
   DialogActions,
   DialogContent,
+  DialogContentText,
+  DialogTitle,
   IconButton,
   Input,
   InputAdornment,
@@ -31,6 +34,15 @@ import {
   NavItem,
   NavItems,
 } from "../../Styles/appbar";
+import Slide from '@mui/material/Slide';
+import { TransitionProps } from '@mui/material/transitions';
+
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="down" ref={ref} {...props} />;
+});
+
+
 
 
 export default function Appbar({ scrollTo }) {
@@ -49,7 +61,7 @@ export default function Appbar({ scrollTo }) {
     setOpen(!open);
   };
 
-  //   open and close drawer handlers
+    // open and close dialog handlers
   const [openDialog, setOpenDialog] = useState(false);
   const openSearchDialog = () => {
     setOpenDialog(!openDialog);
@@ -57,6 +69,13 @@ export default function Appbar({ scrollTo }) {
   const closeSearchDialog = () => {
     setOpenDialog(!openDialog);
   };
+
+
+
+
+
+
+
   // search query
   const [searchQuery, setSearchQuery] = useState("");
   const searchQueryChangeHandler = (event) => {
@@ -160,57 +179,32 @@ export default function Appbar({ scrollTo }) {
         </MyDrawer>
 
         {/* search dialog */}
-        <Dialog
-          open={openDialog}
-          onClose={closeSearchDialog}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-          sx={{
-            position: "fixed",
-            top: "0px",
-            bgcolor: "rgba(0,0,0,0.5)",
-          }}
-        >
-          <DialogContent
-            sx={{
-              width: { sm: "500px", md: "500px" },
-              padding: "5px",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Input
-              sx={{
-                padding: "10px",
-                flexGrow: 1,
-              }}
-              onChange={searchQueryChangeHandler}
-              placeholder="Search"
-              variant="outlined"
-              value={searchQuery}
-              endAdornment={
-                <InputAdornment position="end">
-                  {searchQuery ? (
-                    <ClearIcon
-                      onClick={() => setSearchQuery("")}
-                      sx={{ cursor: "pointer" }}
-                    />
-                  ) : (
-                    <SearchIcon />
-                  )}
-                </InputAdornment>
-              }
-            />
+      
 
-            <DialogActions sx={{ display: "inline-block" }}>
-              <IconContainer matches={true} onClick={openSearchDialog}>
-                <SearchIcon />
-              </IconContainer>
-            </DialogActions>
-          </DialogContent>
-        </Dialog>
+        <Dialog
+        open={openDialog}
+        TransitionComponent={Transition}
+        keepMounted
+        onClose={closeSearchDialog}
+        aria-describedby="alert-dialog-slide-description"
+      >
+        <DialogTitle>{"Use Google's location service?"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-slide-description">
+            Let Google help apps determine location. This means sending anonymous
+            location data to Google, even when no apps are running.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={closeSearchDialog}>Disagree</Button>
+          <Button onClick={closeSearchDialog}>Agree</Button>
+        </DialogActions>
+      </Dialog>
+
+
+
+
+      
       </AppBarContent>
     </AppBar>
   );

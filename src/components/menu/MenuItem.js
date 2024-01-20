@@ -3,9 +3,7 @@ import { theme } from "../../Styles/themes";
 import { IconContainer, MenuItemActions, MenuItemActionsAddToCard, MenuItemActionsPrice, MenuItemCard, MenuItemCardContent, MenuItemCardMedia, MenuItemContainer, MenuItemDescription, MenuItemName } from "../../Styles/menu";
 import { Rating, useMediaQuery } from "@mui/material";
 
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-
-
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 
 export default function MenuItem({item}) {
@@ -30,7 +28,7 @@ export default function MenuItem({item}) {
 
 
         <IconContainer className="addToCard">
-              <ShoppingCartIcon />
+              <AddShoppingCartIcon />
           </IconContainer>
       </MenuItemCard>
     </MenuItemContainer>

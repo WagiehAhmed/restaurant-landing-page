@@ -31,12 +31,12 @@ const About = (props,ref) => {
 
       <AboutItem matches={matches}>
         <AboutItemImageContaimer>
-          <AboutItemImage matches={matches} src={"./images/2.png"} />
+          <AboutItemImage matches={matches} src={"./images/About us page-bro.png"} />
         </AboutItemImageContaimer>
         <AboutItemContent>
           {/* <AboutItemTitle>our special deshes</AboutItemTitle> */}
           <AboutItemTitle matches={matches}>
-            best food in the countery
+            about us
           </AboutItemTitle>
           <AboutItemDescription>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio

@@ -13,7 +13,7 @@ import {
 export default function Item({ matches, item }) {
   return (
     <HomeItem matches={matches}>
-      <HomeItemContent>
+      <HomeItemContent matches={matches}>
         <HomeItemTitle>our special deshes</HomeItemTitle>
         <HomeItemDishTitle matches={matches}>{item.title}</HomeItemDishTitle>
         <HomeItemDishDescription>

@@ -8,19 +8,18 @@ export const HomeContainer = styled(Box)(()=>({
     paddingBottom:"30px ",
 }));
 export const HomeItem = styled(Stack)(({matches})=>({
-    // border:"2px solid purple",
     flexDirection:matches?"column":"row",
-    justifyContent:"center",
-    alignItems:"center",   
+    justifyContent:"center",  
     margin:"0px auto", 
+    border:"2px solid purple",
 }));
-export const HomeItemContent = styled(Stack)(()=>({
-    // border:"2px solid yellow",
-    maxWidth:'700px',                                                   //
+export const HomeItemContent = styled(Stack)(({matches})=>({
+    maxWidth:matches?"100%":"50%",                                                   //
     flexDirection:"column",
-    justifyContent:"flex-start",
+    justifyContent:"center",
     padding:"30px",
-    height:"100%",
+    // height:"100%",
+    border:"2px solid green",
 }));
 export const HomeItemTitle = styled(Typography)(()=>({
     color: `${colors.green}`,
@@ -53,9 +52,10 @@ export const HomeItemOrderNow = styled(Button)(()=>({
     }
 }));
 export const HomeItemImageContaimer = styled(Box)(({matches})=>({
-    maxWidth:matches?"100%":"800px",
-    minWidth:"300px",
-    // border:"2px solid red",
+    maxWidth:matches?"70%":"30%",
+    alignSelf:"center",
+    // minWidth:"300px",
+    border:"2px solid red",
     // maxHeight:matches?"100%":"500px",
     // flexGrow:1,
 }));

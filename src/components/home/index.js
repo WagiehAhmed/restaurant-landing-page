@@ -8,7 +8,7 @@ import { HomeContainer } from "../../Styles/home";
 const Home = (props,ref) => {
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   const items = [
-    { title: "hot pizza", image: "./images/pasta.png" },
+    { title: "hot pizza", image: "./images/pizza.png" },
     { title: "fried chicken", image: "./images/chicken.png" },
     { title: "special noodles", image: "./images/pasta.png" }
   ];
