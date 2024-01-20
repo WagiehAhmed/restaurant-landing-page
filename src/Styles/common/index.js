@@ -33,5 +33,6 @@ export const CustomAnimationBox = styled(Box)(() => ({
   transform: "scale(0,1)",
 
   animation: `${CustomAnimationBoxAnimation} 4s linear`,
+  animationFillMode: "both",
   animationTimeline: "scroll(y)",
 }));
