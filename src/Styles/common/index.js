@@ -30,8 +30,8 @@ export const CustomAnimationBox = styled(Box)(() => ({
   zIndex: 10,
   background: `linear-gradient(45deg, ${colors.primaryText}, ${colors.green})`,
   transformOrigin: "top left",
-  transform: "scale(0.5,1)",
+  transform: "scale(0,1)",
 
   animation: `${CustomAnimationBoxAnimation} 4s linear`,
-  animationTimeline: "scroll()",
+  animationTimeline: "scroll(y)",
 }));
