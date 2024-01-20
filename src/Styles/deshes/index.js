@@ -17,9 +17,11 @@ export const Container = styled(Box)(() => ({
 }));
 export const DeshesContainer = styled(Grid)(({ matches }) => ({
   padding: matches ? "0px" : "0px 100px",
+  // backgroundColor:"red",
 }));
 export const DeshContainer = styled(Grid)(({ matches }) => ({
-  padding: matches ? "15px" : "30px",
+  padding: matches ? "10px" : "20px",
+  // backgroundColor:"green",
 }));
 export const DeshCard = styled(Card)(() => ({
   position: "relative",
@@ -31,6 +33,9 @@ export const DeshCard = styled(Card)(() => ({
   "&:hover": {
     ".addToCard":{
       right: "10px",
+    },
+    ".addToFavorite":{
+      left: "10px",
     }
   },
 }));
@@ -74,18 +79,3 @@ export const DeshActionsAddToCard = styled(Button)(() => ({
   },
 }));
 
-export const IconContainer = styled(IconButton)(() => ({
-  position: "absolute",
-  top: "10px",
-  right: "-50px",
-  width: "45px",
-  height: "45px",
-  transition:"0.5s ease",
-
-  backgroundColor: `${colors.iconContainer}`,
-  color: `${colors.primaryText}`,
-  "&:hover": {
-    backgroundColor: `${colors.green}`,
-    color: `${colors.white}`,
-  },
-}));

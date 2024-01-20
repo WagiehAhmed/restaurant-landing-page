@@ -76,7 +76,7 @@ const Menu = (props,ref) => {
 
       <MenuContainer
         container
-        columns={{ xs: 4, sm: 8, md: 12 }}
+        columns={{ xs: 4, lg: 16}}
         matches={matches}
       >
         {items.map((item) => (

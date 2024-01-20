@@ -7,9 +7,8 @@ import { DeshCardContent } from './../../Styles/deshes/index';
 
 
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-
-
-
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { AddToCardIconContainer, AddToFavoriteIconContainer } from "../../Styles/common";
 
 
 
@@ -35,9 +34,13 @@ export default function Desh({item,matches}) {
           {/* <DeshActionsAddToCard size="small">add to card</DeshActionsAddToCard> */}
         </DeshActions>
 
-        <IconContainer className="addToCard">
+        <AddToCardIconContainer className="addToCard">
               <AddShoppingCartIcon />
-          </IconContainer>
+          </AddToCardIconContainer>
+
+        <AddToFavoriteIconContainer className="addToFavorite">
+              <FavoriteBorderIcon />
+          </AddToFavoriteIconContainer>
       </DeshCard>
     </DeshContainer>
   );

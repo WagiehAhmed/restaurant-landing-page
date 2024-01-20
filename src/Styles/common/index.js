@@ -1,4 +1,4 @@
-import { Box, Typography, styled } from "@mui/material";
+import { Box, IconButton, Typography, styled } from "@mui/material";
 import { colors } from "../themes";
 import { CustomAnimationBoxAnimation } from "../../animations";
 
@@ -36,3 +36,39 @@ export const CustomAnimationBox = styled(Box)(() => ({
   animationFillMode: "backwards",
   animationTimeline: "scroll(y)",
 }));
+
+
+
+export const AddToCardIconContainer = styled(IconButton)(() => ({
+  position: "absolute",
+  top: "15px",
+  right: "-50px",
+  width: "45px",
+  height: "45px",
+  transition:"0.5s ease",
+
+  backgroundColor: `${colors.iconContainer}`,
+  color: `${colors.primaryText}`,
+  "&:hover": {
+    backgroundColor: `${colors.green}`,
+    color: `${colors.white}`,
+  },
+}));
+
+export const AddToFavoriteIconContainer = styled(IconButton)(() => ({
+  position: "absolute",
+  top: "15px",
+  left: "-50px",
+  width: "45px",
+  height: "45px",
+  transition:"0.5s ease",
+
+  backgroundColor: `${colors.iconContainer}`,
+  color: `${colors.primaryText}`,
+  "&:hover": {
+    backgroundColor: `${colors.green}`,
+    color: `${colors.white}`,
+  },
+}));
+
+

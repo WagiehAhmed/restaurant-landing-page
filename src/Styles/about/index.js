@@ -7,22 +7,22 @@ export const Container = styled(Box)(() => ({
 }));
 
 export const AboutItem = styled(Stack)(({ matches }) => ({
-  // border:"2px solid purple",
   flexDirection: matches ? "column" : "row",
   justifyContent: "center",
-  alignItems: "center",
+  // alignItems: "center",
   margin: "15px auto",
+  // border:"2px solid purple",
 }));
-export const AboutItemContent = styled(Stack)(() => ({
-  // border:"2px solid yellow",
+export const AboutItemContent = styled(Stack)(({matches}) => ({
   flexDirection: "column",
-  maxWidth: "700px",                                            //
+  maxWidth:matches?"100%":"50%",
   justifyContent: "center",
-  padding: "30px",
+  padding: "30px 20px",
+  // border:"2px solid green",
 }));
 export const AboutItemTitle = styled(Typography)(({ matches }) => ({
   color: `${colors.primaryText}`,
-  fontSize: matches ? "3em" : "4em",
+  fontSize: matches ? "2em" : "4em",
   fontWeight: "bold",
   textTransform: "capitalize",
 }));
@@ -59,7 +59,7 @@ export const AboutItemOptions = styled(Stack)(() => ({
 export const AboutItemOption = styled(Button)(() => ({
   color: `${colors.primaryText}`,
   flexGrow:1,
-
+  maxWidth:"200px",
   "&:hover": {
     color: `${colors.white}`,
     backgroundColor: `${colors.green}`,
@@ -73,8 +73,8 @@ export const AboutItemOption = styled(Button)(() => ({
 
 
 export const AboutItemImageContaimer = styled(Box)(({matches})=>({
-  maxWidth:matches?"95%":"800px",
-  minWidth:"250px",
+  maxWidth:matches?"70%":"30%",
+  alignSelf:"center",
   // border:"2px solid red",
   // maxHeight:matches?"100%":"500px",
   // flexGrow:1,

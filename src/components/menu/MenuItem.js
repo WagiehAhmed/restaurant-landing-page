@@ -4,7 +4,8 @@ import { IconContainer, MenuItemActions, MenuItemActionsAddToCard, MenuItemActio
 import { Rating, useMediaQuery } from "@mui/material";
 
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { AddToCardIconContainer, AddToFavoriteIconContainer } from "../../Styles/common";
 
 export default function MenuItem({item}) {
   const matches = useMediaQuery(theme.breakpoints.down("md"));
@@ -27,9 +28,13 @@ export default function MenuItem({item}) {
         </MenuItemActions>
 
 
-        <IconContainer className="addToCard">
+        <AddToCardIconContainer className="addToCard">
               <AddShoppingCartIcon />
-          </IconContainer>
+          </AddToCardIconContainer>
+
+        <AddToFavoriteIconContainer className="addToFavorite">
+              <FavoriteBorderIcon />
+          </AddToFavoriteIconContainer>
       </MenuItemCard>
     </MenuItemContainer>
   );

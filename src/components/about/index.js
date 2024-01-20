@@ -30,10 +30,10 @@ const About = (props,ref) => {
       </TitlesContainer>
 
       <AboutItem matches={matches}>
-        <AboutItemImageContaimer>
+        <AboutItemImageContaimer matches={matches}>
           <AboutItemImage matches={matches} src={"./images/About us page-bro.png"} />
         </AboutItemImageContaimer>
-        <AboutItemContent>
+        <AboutItemContent matches={matches}>
           {/* <AboutItemTitle>our special deshes</AboutItemTitle> */}
           <AboutItemTitle matches={matches}>
             about us

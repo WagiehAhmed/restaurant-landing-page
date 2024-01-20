@@ -49,7 +49,7 @@ const Deshes = (props,ref) => {
         <SectionTitle>our dishes</SectionTitle>
         <SectionSubTitle>popular dishes</SectionSubTitle>
       </TitlesContainer>
-      <DeshesContainer container columns={{ xs: 4, sm: 8, md: 12 }} matches={matches}>
+      <DeshesContainer container columns={{ xs: 4, lg:16 }} matches={matches}>
         {items.map((item) => (
           <Desh item={item} key={item.image} matches={matches}/>
         ))}
