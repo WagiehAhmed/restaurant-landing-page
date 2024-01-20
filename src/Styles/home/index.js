@@ -21,14 +21,14 @@ export const HomeItemContent = styled(Stack)(({matches})=>({
     // height:"100%",
     border:"2px solid green",
 }));
-export const HomeItemTitle = styled(Typography)(()=>({
+export const HomeItemTitle = styled(Typography)(({matches})=>({
     color: `${colors.green}`,
-    fontSize:"1.5em",
+    fontSize:matches?"1.em":"1.5em",
     textTransform:"capitalize",
 }));
 export const HomeItemDishTitle = styled(Typography)(({matches})=>({
     color: `${colors.primaryText}`,
-    fontSize:matches?"3em":"4em",
+    fontSize:matches?"2em":"4em",
     fontWeight:"bold",
     textTransform:"capitalize",
 }));

@@ -14,13 +14,11 @@ export default function Item({ matches, item }) {
   return (
     <HomeItem matches={matches}>
       <HomeItemContent matches={matches}>
-        <HomeItemTitle>our special deshes</HomeItemTitle>
+        <HomeItemTitle  matches={matches}>our special deshes</HomeItemTitle>
         <HomeItemDishTitle matches={matches}>{item.title}</HomeItemDishTitle>
         <HomeItemDishDescription>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
-          sequi placeat natus at iste minima autem, nisi magnam. Itaque
-          accusamus voluptas cupiditate quod eligendi dolorem, aliquam tempore
-          consectetur blanditiis quisquam!
+          sequi placeat natus at iste minima autem, nisi magnam.
         </HomeItemDishDescription>
         <HomeItemOrderNow>order now</HomeItemOrderNow>
       </HomeItemContent>
