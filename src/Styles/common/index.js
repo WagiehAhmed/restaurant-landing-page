@@ -34,7 +34,7 @@ export const CustomAnimationBox = styled(Box)(() => ({
 
   animation: `${CustomAnimationBoxAnimation} 4s linear`,
   animationFillMode: "backwards",
-  animationTimeline: "scroll()",
+  animationTimeline: "scroll(y)",
 }));
 
 
