@@ -18,7 +18,7 @@ function App() {
   }
   
   return (
-    <Box>
+    <Box sx={{overflowY:"scroll"}}>
       <Appbar scrollTo={scrollTo}/>
       <Toolbar/>
       <CustomAnimationBox className="anvv"/>
