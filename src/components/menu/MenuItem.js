@@ -14,7 +14,7 @@ export default function MenuItem({item}) {
       <MenuItemCard elevation={5}>
         <MenuItemCardMedia image={item.image} title="desh media" />
         <MenuItemCardContent>
-          <Rating defaultValue={2} precision={1} />
+          <Rating value={item.rating} precision={1} />
           <MenuItemName gutterBottom variant="h5" component="div">
             {item.name}
           </MenuItemName>

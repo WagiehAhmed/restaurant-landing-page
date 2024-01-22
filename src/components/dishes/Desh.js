@@ -27,7 +27,7 @@ export default function Desh({item,matches}) {
           <DeshName gutterBottom variant="h5" component="div">
             {item.name}
           </DeshName>
-          <Rating defaultValue={2} precision={1}/>
+          <Rating value={item.rating} precision={1}/>
         </DeshCardContent>
         <DeshActions >
           <DeshActionsPrice variant="text">{item.price}</DeshActionsPrice>

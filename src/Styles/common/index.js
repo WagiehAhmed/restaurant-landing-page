@@ -30,11 +30,11 @@ export const CustomAnimationBox = styled(Box)(() => ({
   zIndex: 10,
   background: `linear-gradient(45deg, ${colors.primaryText}, ${colors.green})`,
   transformOrigin: "top left",
-  transform: "scale(0,1)",
+  transform: "scaleX(0)",
 
   animation: `${CustomAnimationBoxAnimation} 4s linear`,
   animationFillMode: "backwards",
-  animationTimeline: "scroll(y)",
+  animationTimeline: "scroll()",
 }));
 
 

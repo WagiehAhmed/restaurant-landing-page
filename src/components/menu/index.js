@@ -12,60 +12,72 @@ const Menu = (props,ref) => {
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   const items = [
     {
+      name: "testy food 1",
       image: "./images/1.jpg",
-      name: "testy food",
-      price: "$150.50",
+      price: "$100.50",
+      rating:2,
     },
     {
+      name: "testy food 2",
       image: "./images/2.jpg",
-      name: "testy food",
-      price: "$150.50",
+      price: "$110.50",
+      rating:3,
     },
     {
+      name: "testy food 3",
       image: "./images/3.jpg",
-      name: "testy food",
-      price: "$150.50",
+      price: "$120.50",
+      rating:2,
     },
     {
+      name: "testy food 4",
       image: "./images/4.jpg",
-      name: "testy food",
-      price: "$150.50",
+      price: "$130.50",
+      rating:1,
     },
     {
+      name: "testy food 5",
       image: "./images/5.jpg",
-      name: "testy food",
-      price: "$150.50",
+      price: "$140.50",
+      rating:3,
     },
     {
+      name: "testy food 6",
       image: "./images/6.jpg",
-      name: "testy food",
       price: "$150.50",
+      rating:2,
     },
     {
+      name: "testy food 7",
       image: "./images/7.jpg",
-      name: "testy food",
-      price: "$150.50",
+      price: "$160.50",
+      rating:5,
     },
     {
+      name: "testy food 8",
       image: "./images/8.jpg",
-      name: "testy food",
-      price: "$150.50",
+      price: "$170.50",
+      rating:4,
     },
     {
+      name: "testy food 9",
       image: "./images/9.jpg",
-      name: "testy food",
-      price: "$150.50",
+      price: "$180.50",
+      rating:2,
     },
     {
+      name: "testy food 10",
       image: "./images/10.jpg",
-      name: "testy food",
-      price: "$150.50",
+      price: "$190.50",
+      rating:3,
     },
     {
+      name: "testy food 11",
       image: "./images/11.jpg",
-      name: "testy food",
-      price: "$150.50",
+      price: "$200.50",
+      rating:2,
     },
+ 
   ];
   return (
     <Container ref={ref}>
@@ -76,7 +88,7 @@ const Menu = (props,ref) => {
 
       <MenuContainer
         container
-        columns={{ xs: 4, lg: 16}}
+        columns={{ xs: 4, sm: 8, md: 12, lg: 16}}
         matches={matches}
       >
         {items.map((item) => (
