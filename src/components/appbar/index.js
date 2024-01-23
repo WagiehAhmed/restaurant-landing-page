@@ -15,7 +15,7 @@ import {
   Toolbar,
   useMediaQuery,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import SearchIcon from "@mui/icons-material/Search";
@@ -34,25 +34,21 @@ import {
   NavItem,
   NavItems,
 } from "../../Styles/appbar";
-import Slide from '@mui/material/Slide';
-import { TransitionProps } from '@mui/material/transitions';
-
+import Slide from "@mui/material/Slide";
+import { TransitionProps } from "@mui/material/transitions";
+import { GetStore } from "./../../contexts/StoreProvider";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
 });
-
-
-
 
 export default function Appbar({ scrollTo }) {
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("home");
 
+  const { state } = GetStore();
 
-
-  // useEffect(()=>(console.log(active)),[active])
   //   open and close drawer handlers
   const openDrawer = () => {
     setOpen(!open);
@@ -61,7 +57,7 @@ export default function Appbar({ scrollTo }) {
     setOpen(!open);
   };
 
-    // open and close dialog handlers
+  // open and close dialog handlers
   const [openDialog, setOpenDialog] = useState(false);
   const openSearchDialog = () => {
     setOpenDialog(!openDialog);
@@ -69,12 +65,6 @@ export default function Appbar({ scrollTo }) {
   const closeSearchDialog = () => {
     setOpenDialog(!openDialog);
   };
-
-
-
-
-
-
 
   // search query
   const [searchQuery, setSearchQuery] = useState("");
@@ -102,11 +92,7 @@ export default function Appbar({ scrollTo }) {
         >
           <MenuIcon />
         </IconContainer>
-        <LogoActions
-          onClick={() =>
-            scrollTo(0)
-          }
-        >
+        <LogoActions onClick={() => scrollTo(0)}>
           <IconButton color="inherit">
             <RestaurantIcon color="success" />
           </IconButton>
@@ -117,29 +103,39 @@ export default function Appbar({ scrollTo }) {
             (item, index) => (
               <NavItem
                 key={item}
-                sx={{backgroundColor:active===item?`${colors.green}`:"transparent",color:active===item?`${colors.white}`:`${colors.primaryText}`}}
+                sx={{
+                  backgroundColor:
+                    active === item ? `${colors.green}` : "transparent",
+                  color:
+                    active === item
+                      ? `${colors.white}`
+                      : `${colors.primaryText}`,
+                }}
                 onClick={() => {
-                  scrollTo(index)
+                  scrollTo(index);
                   setActive(item);
-                }}>
+                }}
+              >
                 {item}
               </NavItem>
             )
           )}
-          
         </NavItems>
         <NavActions>
           <IconContainer matches={true} onClick={openSearchDialog}>
             <SearchIcon />
           </IconContainer>
-          <IconContainer matches={true}>
-            <FavoriteIcon />
-          </IconContainer>
-          <IconContainer matches={true}>
-            <Badge badgeContent={0} color="secondary">
+          <Badge badgeContent={state.favorites.length} color="secondary">
+            <IconContainer matches={true}>
+              <FavoriteIcon />
+            </IconContainer>
+          </Badge>
+          {/* <IconContainer matches={true}> */}
+          <Badge badgeContent={state.orders.length} color="secondary">
+            <IconContainer matches={true}>
               <ShoppingCartIcon />
-            </Badge>
-          </IconContainer>
+            </IconContainer>
+          </Badge>
         </NavActions>
         <MyDrawer
           variant="temporary"
@@ -153,20 +149,25 @@ export default function Appbar({ scrollTo }) {
           <DrawerList>
             {["home", "dishes", "aboutus", "menu", "reviews", "order"].map(
               (item, index) => (
-                <ListItem key={item} sx={{padding:"0px"}}>
-                  <ListItemButton 
-                   sx={{
-                    textTransform: "capitalize", 
-                    // width:'150px',
-                    backgroundColor:active===item?`${colors.green}`:"transparent",
-                    color:active===item?`${colors.white}`:`${colors.primaryText}`,
-                    "&:hover":{
-                      backgroundColor:active===item?`${colors.green}`:"",
-                    }
-                  }}
-                 onClick={() => {
-                  scrollTo(index)
-                    setActive(item);
+                <ListItem key={item} sx={{ padding: "0px" }}>
+                  <ListItemButton
+                    sx={{
+                      textTransform: "capitalize",
+                      // width:'150px',
+                      backgroundColor:
+                        active === item ? `${colors.green}` : "transparent",
+                      color:
+                        active === item
+                          ? `${colors.white}`
+                          : `${colors.primaryText}`,
+                      "&:hover": {
+                        backgroundColor:
+                          active === item ? `${colors.green}` : "",
+                      },
+                    }}
+                    onClick={() => {
+                      scrollTo(index);
+                      setActive(item);
                       closeDrawer();
                     }}
                   >
@@ -179,32 +180,25 @@ export default function Appbar({ scrollTo }) {
         </MyDrawer>
 
         {/* search dialog */}
-      
-
         <Dialog
-        open={openDialog}
-        TransitionComponent={Transition}
-        keepMounted
-        onClose={closeSearchDialog}
-        aria-describedby="alert-dialog-slide-description"
-      >
-        <DialogTitle>{"Use Google's location service?"}</DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">
-            Let Google help apps determine location. This means sending anonymous
-            location data to Google, even when no apps are running.
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={closeSearchDialog}>Disagree</Button>
-          <Button onClick={closeSearchDialog}>Agree</Button>
-        </DialogActions>
-      </Dialog>
-
-
-
-
-      
+          open={openDialog}
+          TransitionComponent={Transition}
+          keepMounted
+          onClose={closeSearchDialog}
+          aria-describedby="alert-dialog-slide-description"
+        >
+          <DialogTitle>{"Use Google's location service?"}</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-slide-description">
+              Let Google help apps determine location. This means sending
+              anonymous location data to Google, even when no apps are running.
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={closeSearchDialog}>Disagree</Button>
+            <Button onClick={closeSearchDialog}>Agree</Button>
+          </DialogActions>
+        </Dialog>
       </AppBarContent>
     </AppBar>
   );

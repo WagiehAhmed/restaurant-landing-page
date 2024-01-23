@@ -18,10 +18,10 @@ function App() {
   }
   
   return (
-    <Box sx={{overflowY:"scroll"}}>
+    <Box>
       <Appbar scrollTo={scrollTo}/>
       <Toolbar/>
-      <CustomAnimationBox className="anvv"/>
+      <CustomAnimationBox/>
       <Home ref={refs[0]}/>
       <Deshes ref={refs[1]}/>
       <About ref={refs[2]}/>

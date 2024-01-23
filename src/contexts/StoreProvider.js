@@ -1,3 +1,4 @@
+import { Favorite } from "@mui/icons-material";
 import React, { createContext, useContext, useReducer } from "react";
 
 const storeContext = createContext({});
@@ -10,12 +11,17 @@ const StoreProvider = ({ children }) => {
 
   const reducer = (state, action) => {
     switch (action.type) {
-      case "addToOreders":
-        state.orders.push(action.payload);
-        break;
-      case "addToFavorites":
-        state.favorites.push(action.payload);
-        break;
+      case "addToOreders":{
+        state = {orders:[... state.orders,action.payload],favorites:[...state.favorites]};
+        return state;
+        }
+      case "addToFavorites":{
+        state = {orders:[... state.orders],favorites:[...state.favorites,action.payload]};
+        return state;
+        }
+
+      default:
+        return state;
     }
   };
   const [state, dispatch] = useReducer(reducer, { orders: [], favorites: [] });

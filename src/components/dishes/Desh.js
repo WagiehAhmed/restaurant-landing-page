@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { DeshActions, DeshActionsAddToCard, DeshActionsPrice, DeshCard, DeshCardMedia, DeshContainer, DeshName ,IconContainer} from "../../Styles/deshes";
 import {
   Rating,
@@ -9,6 +9,7 @@ import { DeshCardContent } from './../../Styles/deshes/index';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { AddToCardIconContainer, AddToFavoriteIconContainer } from "../../Styles/common";
+import { GetStore } from "../../contexts/StoreProvider";
 
 
 
@@ -19,6 +20,19 @@ import { AddToCardIconContainer, AddToFavoriteIconContainer } from "../../Styles
 
 export default function Desh({item,matches}) {
  
+  const {state,dispatch} = GetStore();
+
+  // useEffect(()=>{
+  //   console.log(state)
+  // },[state])
+
+  const addToOrders = (item) => {
+      dispatch({type:"addToOreders",payload:item})
+  }
+  const addToFavorites = (item) => {
+      dispatch({type:"addToFavorites",payload:item})
+  }
+
   return (
     <DeshContainer item xs={4} matches={matches}>
       <DeshCard elevation={5}>
@@ -34,12 +48,12 @@ export default function Desh({item,matches}) {
           {/* <DeshActionsAddToCard size="small">add to card</DeshActionsAddToCard> */}
         </DeshActions>
 
-        <AddToCardIconContainer className="addToCard">
+        <AddToCardIconContainer className="addToCard" onClick={()=>{addToOrders(item)}}>
               <AddShoppingCartIcon />
           </AddToCardIconContainer>
 
-        <AddToFavoriteIconContainer className="addToFavorite">
-              <FavoriteBorderIcon />
+        <AddToFavoriteIconContainer className="addToFavorite" onClick={()=>{addToFavorites(item)}}>
+              <FavoriteBorderIcon/>
           </AddToFavoriteIconContainer>
       </DeshCard>
     </DeshContainer>

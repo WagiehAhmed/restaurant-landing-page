@@ -14,6 +14,7 @@ import { colors } from "../themes";
 export const AppBarContent = styled(Toolbar)(() => ({
   position: "relative",
   flexDirection: "row",
+  paddingBlock: "5px",
   justifyContent: "space-between",
 }));
 export const LogoActions = styled(Stack)(() => ({
@@ -62,13 +63,15 @@ export const DrawerList = styled(List)(() => ({
   padding: "0px",
 }));
 
+
+
 export const IconContainer = styled(IconButton)(({ matches }) => ({
   color: `${colors.primaryText}`,
   width: "40px",
   height: "40px",
   display: matches ? "block" : "none",
   backgroundColor: `${colors.iconContainer}`,
-  margin: "1px",
+  marginInline: "3px",
   "&:hover": {
     backgroundColor: `${colors.green}`,
     color: `${colors.white}`,
