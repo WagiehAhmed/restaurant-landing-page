@@ -49,7 +49,7 @@ export default function Footer() {
       </FooterContainer>
       <CopyRightContainer>
         <CopyRight>copyright &#174; 2023 by</CopyRight>
-        <By>ahmed Taha eid</By>
+        <By>wagieh ahmed eid</By>
       </CopyRightContainer>
     </Container>
   );

@@ -14,7 +14,7 @@ import { colors } from "../themes";
 export const AppBarContent = styled(Toolbar)(() => ({
   position: "relative",
   flexDirection: "row",
-  paddingBlock: "5px",
+  paddingTop: "5px",
   justifyContent: "space-between",
 }));
 export const LogoActions = styled(Stack)(() => ({
@@ -54,7 +54,6 @@ export const NavActions = styled(Stack)(() => ({
 }));
 
 export const MyDrawer = styled(Drawer)(() => ({
-
   zIndex: 1,
 }));
 
