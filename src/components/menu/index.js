@@ -9,73 +9,95 @@ import MenuItem from "./MenuItem";
 import { SectionSubTitle, SectionTitle, TitlesContainer } from "../../Styles/common";
 
 const Menu = (props,ref) => {
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesMedium = useMediaQuery(theme.breakpoints.down("md"));
   const items = [
     {
+      id:10,
       name: "testy food 1",
       image: "./images/1.jpg",
-      price: "$100.50",
+      price: 10,
       rating:2,
+      
     },
     {
+      id:20,
       name: "testy food 2",
       image: "./images/2.jpg",
-      price: "$110.50",
+      price: 10,
       rating:3,
+      
     },
     {
+      id:30,
       name: "testy food 3",
       image: "./images/3.jpg",
-      price: "$120.50",
+      price:120,
       rating:2,
+      
     },
     {
+      id:40,
       name: "testy food 4",
       image: "./images/4.jpg",
-      price: "$130.50",
+      price: 30,
       rating:1,
+      
     },
     {
+      id:50,
       name: "testy food 5",
       image: "./images/5.jpg",
-      price: "$140.50",
+      price: 40,
       rating:3,
+      
     },
     {
+      id:60,
       name: "testy food 6",
       image: "./images/6.jpg",
-      price: "$150.50",
+      price: 50,
       rating:2,
+      
     },
     {
+      id:70,
       name: "testy food 7",
       image: "./images/7.jpg",
-      price: "$160.50",
+      price: 60,
       rating:5,
+      
     },
     {
+      id:80,
       name: "testy food 8",
       image: "./images/8.jpg",
-      price: "$170.50",
+      price: 70,
       rating:4,
+      
     },
     {
+      id:90,
       name: "testy food 9",
       image: "./images/9.jpg",
-      price: "$180.50",
+      price: 80,
       rating:2,
+      
     },
     {
+      id:100,
       name: "testy food 10",
       image: "./images/10.jpg",
-      price: "$190.50",
+      price: 40,
       rating:3,
+      
     },
     {
+      id:110,
       name: "testy food 11",
       image: "./images/11.jpg",
-      price: "$200.50",
+      price: 50,
       rating:2,
+      
     },
  
   ];
@@ -89,10 +111,10 @@ const Menu = (props,ref) => {
       <MenuContainer
         container
         columns={{ xs: 4, sm: 8, md: 12, lg: 16}}
-        matches={matches}
+        matches={matchesMedium}
       >
         {items.map((item) => (
-          <MenuItem item={item} key={item.image} matches={matches} />
+          <MenuItem item={item} key={item.image} matches={matchesMedium} />
         ))}
       </MenuContainer>
     </Container>

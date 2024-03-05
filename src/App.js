@@ -21,7 +21,7 @@ function App() {
     <Box>
       <Appbar scrollTo={scrollTo}/>
       <Toolbar/>
-      <CustomAnimationBox/>
+      <CustomAnimationBox />
       <Home ref={refs[0]}/>
       <Deshes ref={refs[1]}/>
       <About ref={refs[2]}/>

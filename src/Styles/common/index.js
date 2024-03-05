@@ -46,10 +46,14 @@ export const AddToCardIconContainer = styled(IconButton)(() => ({
   width: "45px",
   height: "45px",
   transition:"0.5s ease",
-
   backgroundColor: `${colors.iconContainer}`,
   color: `${colors.primaryText}`,
+
   "&:hover": {
+    backgroundColor: `${colors.green}`,
+    color: `${colors.white}`,
+  },
+  "&.added": {
     backgroundColor: `${colors.green}`,
     color: `${colors.white}`,
   },
@@ -62,13 +66,19 @@ export const AddToFavoriteIconContainer = styled(IconButton)(() => ({
   width: "45px",
   height: "45px",
   transition:"0.5s ease",
-
   backgroundColor: `${colors.iconContainer}`,
   color: `${colors.primaryText}`,
+
   "&:hover": {
     backgroundColor: `${colors.green}`,
     color: `${colors.white}`,
   },
+
+  "&.added": {
+    backgroundColor: `${colors.green}`,
+    color: `${colors.white}`,
+  },
 }));
+
 
 

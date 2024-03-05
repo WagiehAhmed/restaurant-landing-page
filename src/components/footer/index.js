@@ -11,7 +11,7 @@ import { useMediaQuery } from "@mui/material";
 import { theme } from "../../Styles/themes";
 
 export default function Footer() {
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesMedium = useMediaQuery(theme.breakpoints.down("md"));
   const footerData = [
     {
       title: "location",
@@ -39,12 +39,12 @@ export default function Footer() {
   return (
     <Container>
       <FooterContainer
-        matches={matches}
+        matches={matchesMedium}
         container
         columns={{ xs: 3, sm: 6, md: 12 }}
       >
         {footerData.map((item) => (
-          <FooterItem item={item} key={item.title} matches={matches} />
+          <FooterItem item={item} key={item.title} matches={matchesMedium} />
         ))}
       </FooterContainer>
       <CopyRightContainer>

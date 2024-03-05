@@ -9,6 +9,7 @@ import {
   HomeItemOrderNow,
   HomeItemTitle,
 } from "../../Styles/home";
+import { Link } from "@mui/material";
 
 export default function Item({ matches, item }) {
   return (
@@ -21,6 +22,8 @@ export default function Item({ matches, item }) {
           sequi placeat natus at iste minima autem, nisi magnam.
         </HomeItemDishDescription>
         <HomeItemOrderNow>order now</HomeItemOrderNow>
+        {/* <Link href="https://wa.me/+201010576801" target="_blank">Send Message </Link> */}
+        <Link href="https://api.whatsapp.com/send?phone=+201093799249&text=hi" target="_blank">Send Message</Link>
       </HomeItemContent>
       <HomeItemImageContaimer matches={matches}>
         <HomeItemImage matches={matches} src={item.image} />

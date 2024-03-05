@@ -1,8 +1,12 @@
 import {
+  Box,
   Button,
+  Dialog,
+  DialogContent,
   Drawer,
   IconButton,
   List,
+  Paper,
   Stack,
   Toolbar,
   Typography,
@@ -65,15 +69,94 @@ export const DrawerList = styled(List)(() => ({
 
 
 export const IconContainer = styled(IconButton)(({ matches }) => ({
-  color: `${colors.primaryText}`,
-  width: "40px",
-  height: "40px",
-  display: matches ? "block" : "none",
-  backgroundColor: `${colors.iconContainer}`,
+  boxSizing:"border-box",
   marginInline: "3px",
+  color: `${colors.primaryText}`,
+  backgroundColor: `${colors.iconContainer}`,
+  display: "inline-flex",
+  
+  
+  "&.menu-icon": {
+    display: matches ? "inline-flex":"none",
+  },
+  
+  "&.clear-icon": {
+    backgroundColor: "white",
+    position:"absolute",
+    top: "0px",
+    right: "0px",
+  },
+  
+  "&.add-icon": {
+    backgroundColor: "white",
+    position:"absolute",
+    bottom: "0px",
+    right: "0px",
+  },
+  "&.increment,&.decrement": {
+    backgroundColor: "white",
+  },
   "&:hover": {
     backgroundColor: `${colors.green}`,
     color: `${colors.white}`,
   },
 }));
 
+// card item section
+export const CardItemContainer = styled(Paper)(()=>({
+  position:"relative",
+  display: "flex",
+  width:"300px",
+  margin:"10px",
+  flexDirection:"row",
+  justifyContent:"center",
+  backgroundColor:"white",
+  height:"115px",
+  "&.favorite-item":{
+    height:"80px",
+  }
+  // border:"2px solid green",
+}))
+
+export const CardItemImage = styled(Box)(()=>({
+  width:"30%",
+  // border:"2px solid green",
+}))
+export const Image = styled("img")(({src})=>({
+  src:src,
+  width:"100%",
+  height:"100%",
+  objectFit:"cover",
+}))
+export const CardItemContent = styled(Stack)(()=>({
+  width:"70%",
+  // border:"2px solid blue",
+}))
+
+export const CustomTypography = styled(Typography)(()=>({
+  padding:"5px",
+  color:"red",
+  "&.item-name":{
+     color: `${colors.primaryText}`,
+  },
+  "&.item-price":{
+     color: `${colors.green}`,
+  },
+}))
+export const CustomBox = styled(Box)(()=>({
+  padding:"5px",
+  color:"red"
+}))
+
+
+// 
+export const SubmitOrder = styled(Button)(() => ({
+  backgroundColor: `${colors.primaryText}`,
+  textTransform: "capitalize",
+  margin: "10px auto",
+  width: "fit-content",
+  color: `${colors.white}`,
+  "&:hover": {
+    backgroundColor: `${colors.green}`,
+  },
+}));

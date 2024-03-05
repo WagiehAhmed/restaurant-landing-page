@@ -14,7 +14,7 @@ import {
 import { theme } from "./../../Styles/themes";
 import { SectionSubTitle, SectionTitle, TitlesContainer } from "../../Styles/common";
 const Order = (props,ref) => {
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesMedium = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <OrederContainer ref={ref}>
       <TitlesContainer>
@@ -26,19 +26,19 @@ const Order = (props,ref) => {
         <Paper elevation={5}>
           <OrderContentItems variant="outlined">
             <OrderContentItem
-              matches={matches}
+              matches={matchesMedium}
               label="Your Name"
               type="text"
               variant="outlined"
             />
             <OrderContentItem
-              matches={matches}
+              matches={matchesMedium}
               label="Your Number"
               type="text"
               variant="outlined"
             />
             <OrderContentItem
-              matches={matches}
+              matches={matchesMedium}
               label="Your Order"
               type="text"
               variant="outlined"
@@ -47,18 +47,18 @@ const Order = (props,ref) => {
               label="Data And Time"
               focused
               variant="outlined"
-              matches={matches}
+              matches={matchesMedium}
               type="datetime-local"
             />
               <OrderContentItem
-                matches={matches}
+                matches={matchesMedium}
                 label="Your Messsage"
                 multiline
                 rows={5}
                 variant="outlined"
               />
             <OrderContentItem
-              matches={matches}
+              matches={matchesMedium}
               label="YourAddress"
               multiline
               rows={5}

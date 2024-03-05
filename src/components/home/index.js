@@ -6,7 +6,7 @@ import Item from "./Item";
 import { HomeContainer } from "../../Styles/home";
 
 const Home = (props,ref) => {
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesMedium = useMediaQuery(theme.breakpoints.down("md"));
   const items = [
     { title: "hot pizza", image: "./images/pizza.png" },
     { title: "fried chicken", image: "./images/chicken.png" },
@@ -27,7 +27,7 @@ const Home = (props,ref) => {
       <Slider {...settings}>
         {
           items.map((item)=>(
-            <Item matches={matches} item={item} key={item.title}/>
+            <Item matches={matchesMedium} item={item} key={item.title}/>
             ))
           }
       </Slider>

@@ -1,25 +1,15 @@
 import {
   AppBar,
   Badge,
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
   IconButton,
-  Input,
-  InputAdornment,
   ListItem,
   ListItemButton,
   Toolbar,
   useMediaQuery,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import SearchIcon from "@mui/icons-material/Search";
-import ClearIcon from "@mui/icons-material/Clear";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import MenuIcon from "@mui/icons-material/Menu";
 import { colors, theme } from "../../Styles/themes";
@@ -34,20 +24,20 @@ import {
   NavItem,
   NavItems,
 } from "../../Styles/appbar";
-import Slide from "@mui/material/Slide";
-import { TransitionProps } from "@mui/material/transitions";
-import { GetStore } from "./../../contexts/StoreProvider";
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="down" ref={ref} {...props} />;
-});
+import { Menu, MenuItem } from "@mui/material";
+
+import { useStoreContext } from "../../hooks/useStoreContext";
+import OrdersCard from "../Cards/OrdersCard";
+import FavoritesCard from "../Cards/FavoritesCard";
 
 export default function Appbar({ scrollTo }) {
+
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("home");
 
-  const { state } = GetStore();
+  const { orders, favorites } = useStoreContext();
 
   //   open and close drawer handlers
   const openDrawer = () => {
@@ -57,19 +47,24 @@ export default function Appbar({ scrollTo }) {
     setOpen(!open);
   };
 
-  // open and close dialog handlers
-  const [openDialog, setOpenDialog] = useState(false);
-  const openSearchDialog = () => {
-    setOpenDialog(!openDialog);
+  // open and close orders card handlers
+  const [ordersAnchorEl, setOrdersAnchorEl] = useState(null);
+  const openOrdersCard = (event) => {
+    // console.log(orders);
+    setOrdersAnchorEl(event.currentTarget);
   };
-  const closeSearchDialog = () => {
-    setOpenDialog(!openDialog);
+  const closeOrdersCard = () => {
+    setOrdersAnchorEl(null);
   };
 
-  // search query
-  const [searchQuery, setSearchQuery] = useState("");
-  const searchQueryChangeHandler = (event) => {
-    setSearchQuery(event.target.value);
+  // open and close favorites card handlers
+  const [favoritesAnchorEl, setFavoritesAnchorEl] = useState(null);
+  const openFavoritesCard = (event) => {
+    // console.log(favorites);
+    setFavoritesAnchorEl(event.currentTarget);
+  };
+  const closeFavoritesCard = () => {
+    setFavoritesAnchorEl(null);
   };
 
   return (
@@ -84,20 +79,26 @@ export default function Appbar({ scrollTo }) {
       }}
     >
       <AppBarContent>
+        {/* mobile menu icon */}
         <IconContainer
           matches={matches}
+          className="menu-icon"
           onClick={() => {
             openDrawer();
           }}
         >
           <MenuIcon />
         </IconContainer>
+
+        {/* logo */}
         <LogoActions onClick={() => scrollTo(0)}>
           <IconButton color="inherit">
             <RestaurantIcon color="success" />
           </IconButton>
           <LogoTitleContainer variant="h5">resto.</LogoTitleContainer>
         </LogoActions>
+
+        {/* navigation bar */}
         <NavItems matches={matches}>
           {["home", "dishes", "aboutus", "menu", "reviews", "order"].map(
             (item, index) => (
@@ -121,22 +122,23 @@ export default function Appbar({ scrollTo }) {
             )
           )}
         </NavItems>
+
+        {/* navigation icons orders and favorites */}
         <NavActions>
-          <IconContainer matches={true} onClick={openSearchDialog}>
-            <SearchIcon />
+          <IconContainer matches={matches} onClick={openFavoritesCard}>
+            <Badge badgeContent={favorites.length} color="primary">
+              <FavoriteIcon fontSize="medium" />
+            </Badge>
           </IconContainer>
-          <Badge badgeContent={state.favorites.length} color="secondary">
-            <IconContainer matches={true}>
-              <FavoriteIcon />
-            </IconContainer>
-          </Badge>
-          {/* <IconContainer matches={true}> */}
-          <Badge badgeContent={state.orders.length} color="secondary">
-            <IconContainer matches={true}>
-              <ShoppingCartIcon />
-            </IconContainer>
-          </Badge>
+
+          <IconContainer matches={matches} onClick={openOrdersCard}>
+            <Badge badgeContent={orders.length} color="primary">
+              <ShoppingCartIcon fontSize="medium" />
+            </Badge>
+          </IconContainer>
         </NavActions>
+
+        {/* mobile drawer */}
         <MyDrawer
           variant="temporary"
           open={open}
@@ -179,26 +181,58 @@ export default function Appbar({ scrollTo }) {
           </DrawerList>
         </MyDrawer>
 
-        {/* search dialog */}
-        <Dialog
-          open={openDialog}
-          TransitionComponent={Transition}
-          keepMounted
-          onClose={closeSearchDialog}
-          aria-describedby="alert-dialog-slide-description"
+        {/* card dialog */}
+        <Menu
+          anchorEl={ordersAnchorEl}
+          open={ordersAnchorEl ? true : false}
+          onClose={closeOrdersCard}
+          sx={{
+            maxHeight: "480px",
+            "& .MuiList-root ": {
+              padding: "0px",
+            },
+            "& .MuiPaper-root": {
+              "::-webkit-scrollbar": {
+                width: "5px",
+                backgroundColor:`${colors.iconContainer}`
+              },
+              "::-webkit-scrollbar-thumb": {
+                borderRadius:"50px",
+                backgroundColor:`${colors.green}`
+              },
+            },
+          }}
         >
-          <DialogTitle>{"Use Google's location service?"}</DialogTitle>
-          <DialogContent>
-            <DialogContentText id="alert-dialog-slide-description">
-              Let Google help apps determine location. This means sending
-              anonymous location data to Google, even when no apps are running.
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={closeSearchDialog}>Disagree</Button>
-            <Button onClick={closeSearchDialog}>Agree</Button>
-          </DialogActions>
-        </Dialog>
+          <OrdersCard />
+        
+         
+        </Menu>
+
+        {/* favorites dialog */}
+        <Menu
+          anchorEl={favoritesAnchorEl}
+          open={favoritesAnchorEl ? true : false}
+          onClose={closeFavoritesCard}
+          sx={{
+            maxHeight: "480px",
+            "& .MuiList-root ": {
+              padding: "0px",
+            },
+            "& .MuiPaper-root": {
+              "::-webkit-scrollbar": {
+                width: "0px",
+              },
+            },
+          }}
+        >
+          <FavoritesCard />
+          {favorites.length===0 && (
+            <MenuItem>
+              {/* <SubmitOrder>Submit Order</SubmitOrder> */}
+              No Items...
+            </MenuItem>
+          )}
+        </Menu>
       </AppBarContent>
     </AppBar>
   );

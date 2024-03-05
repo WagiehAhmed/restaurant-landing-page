@@ -21,7 +21,7 @@ import { SectionSubTitle, SectionTitle, TitlesContainer } from "../../Styles/com
 
 
 const About = (props,ref) => {
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesMedium = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Container ref={ref}>
       <TitlesContainer>
@@ -29,13 +29,13 @@ const About = (props,ref) => {
         <SectionSubTitle>why choose us?</SectionSubTitle>
       </TitlesContainer>
 
-      <AboutItem matches={matches}>
-        <AboutItemImageContaimer matches={matches}>
-          <AboutItemImage matches={matches} src={"./images/About us page-bro.png"} />
+      <AboutItem matches={matchesMedium}>
+        <AboutItemImageContaimer matches={matchesMedium}>
+          <AboutItemImage matches={matchesMedium} src={"./images/About us page-bro.png"} />
         </AboutItemImageContaimer>
-        <AboutItemContent matches={matches}>
+        <AboutItemContent matches={matchesMedium}>
           {/* <AboutItemTitle>our special deshes</AboutItemTitle> */}
-          <AboutItemTitle matches={matches}>
+          <AboutItemTitle matches={matchesMedium}>
             about us
           </AboutItemTitle>
           <AboutItemDescription>

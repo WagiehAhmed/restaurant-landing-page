@@ -9,7 +9,7 @@ import ReviewItem from "./ReviewItem";
 import { SectionSubTitle, SectionTitle, TitlesContainer } from "../../Styles/common";
 
 const Reviews = (props,ref) => {
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesMedium = useMediaQuery(theme.breakpoints.down("md"));
 
   const items = [
     { name: "john deo", image: "./images/p1.jpg" },
@@ -66,7 +66,7 @@ const Reviews = (props,ref) => {
       <Slider {...settings}>
 
         {items.map((item) => (
-          <ReviewItem matches={matches} item={item} key={item.name} />
+          <ReviewItem matches={matchesMedium} item={item} key={item.name} />
           ))}
 
       </Slider>
