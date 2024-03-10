@@ -3,10 +3,9 @@ import React from "react";
 import { theme } from "./../../Styles/themes";
 import {
   Container,
-  MenuContainer,
-} from "../../Styles/menu";
+  MenuContainer,SectionSubTitle, SectionTitle, TitlesContainer 
+} from "../../Styles";
 import MenuItem from "./MenuItem";
-import { SectionSubTitle, SectionTitle, TitlesContainer } from "../../Styles/common";
 
 const Menu = (props,ref) => {
   const matchesMedium = useMediaQuery(theme.breakpoints.down("md"));
@@ -17,7 +16,7 @@ const Menu = (props,ref) => {
       image: "./images/1.jpg",
       price: 10,
       rating:2,
-      
+      count:1,
     },
     {
       id:20,
@@ -25,7 +24,7 @@ const Menu = (props,ref) => {
       image: "./images/2.jpg",
       price: 10,
       rating:3,
-      
+      count:1,
     },
     {
       id:30,
@@ -33,7 +32,7 @@ const Menu = (props,ref) => {
       image: "./images/3.jpg",
       price:120,
       rating:2,
-      
+      count:1,
     },
     {
       id:40,
@@ -41,7 +40,7 @@ const Menu = (props,ref) => {
       image: "./images/4.jpg",
       price: 30,
       rating:1,
-      
+      count:1,
     },
     {
       id:50,
@@ -49,7 +48,7 @@ const Menu = (props,ref) => {
       image: "./images/5.jpg",
       price: 40,
       rating:3,
-      
+      count:1,
     },
     {
       id:60,
@@ -57,7 +56,7 @@ const Menu = (props,ref) => {
       image: "./images/6.jpg",
       price: 50,
       rating:2,
-      
+      count:1,
     },
     {
       id:70,
@@ -65,7 +64,7 @@ const Menu = (props,ref) => {
       image: "./images/7.jpg",
       price: 60,
       rating:5,
-      
+      count:1,
     },
     {
       id:80,
@@ -73,7 +72,7 @@ const Menu = (props,ref) => {
       image: "./images/8.jpg",
       price: 70,
       rating:4,
-      
+      count:1,
     },
     {
       id:90,
@@ -81,7 +80,7 @@ const Menu = (props,ref) => {
       image: "./images/9.jpg",
       price: 80,
       rating:2,
-      
+      count:1,
     },
     {
       id:100,
@@ -89,7 +88,7 @@ const Menu = (props,ref) => {
       image: "./images/10.jpg",
       price: 40,
       rating:3,
-      
+      count:1,
     },
     {
       id:110,
@@ -97,9 +96,8 @@ const Menu = (props,ref) => {
       image: "./images/11.jpg",
       price: 50,
       rating:2,
-      
+      count:1,
     },
- 
   ];
   return (
     <Container ref={ref}>

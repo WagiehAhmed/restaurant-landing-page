@@ -5,7 +5,7 @@ import {
   CopyRight,
   CopyRightContainer,
   FooterContainer,
-} from "../../Styles/footer";
+} from "../../Styles";
 import FooterItem from "./FooterItem";
 import { useMediaQuery } from "@mui/material";
 import { theme } from "../../Styles/themes";

@@ -3,7 +3,7 @@ import React from "react";
 import Slider from "react-slick";
 import { theme } from "../../Styles/themes";
 import Item from "./Item";
-import { HomeContainer } from "../../Styles/home";
+import { HomeContainer } from "../../Styles";
 
 const Home = (props,ref) => {
   const matchesMedium = useMediaQuery(theme.breakpoints.down("md"));

@@ -4,9 +4,9 @@ import { theme } from "../../Styles/themes";
 import Slider from "react-slick";
 import {
   ReviewsContainer,
-} from "../../Styles/reviews";
+  SectionSubTitle, SectionTitle, TitlesContainer
+} from "../../Styles";
 import ReviewItem from "./ReviewItem";
-import { SectionSubTitle, SectionTitle, TitlesContainer } from "../../Styles/common";
 
 const Reviews = (props,ref) => {
   const matchesMedium = useMediaQuery(theme.breakpoints.down("md"));

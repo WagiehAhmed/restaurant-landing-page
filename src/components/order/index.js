@@ -4,7 +4,8 @@ import {
   OrderContentItems,
   OrderNow,
   OrederContainer,
-} from "../../Styles/order";
+  SectionSubTitle, SectionTitle, TitlesContainer 
+} from "../../Styles";
 import {
   Container,
   Paper,
@@ -12,7 +13,6 @@ import {
 } from "@mui/material";
 // import { AccountCircle } from "@mui/icons-material";
 import { theme } from "./../../Styles/themes";
-import { SectionSubTitle, SectionTitle, TitlesContainer } from "../../Styles/common";
 const Order = (props,ref) => {
   const matchesMedium = useMediaQuery(theme.breakpoints.down("md"));
   return (

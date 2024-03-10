@@ -6,7 +6,7 @@ import {
   ReviewItemHeaderImage,
   ReviewItemHeaderName,
   ReviewItemText,
-} from "../../Styles/reviews";
+} from "../../Styles";
 import { Rating } from "@mui/material";
 
 export default function ReviewItem({ item, matches }) {

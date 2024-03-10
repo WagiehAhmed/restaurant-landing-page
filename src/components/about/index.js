@@ -10,17 +10,17 @@ import {
   AboutItemOptions,
   AboutItemTitle,
   Container,
-} from "../../Styles/about";
+  SectionSubTitle,
+  SectionTitle,
+  TitlesContainer,
+} from "../../Styles";
 import { useMediaQuery } from "@mui/material";
 import { theme } from "./../../Styles/themes";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import HeadsetMicIcon from "@mui/icons-material/HeadsetMic";
-import { SectionSubTitle, SectionTitle, TitlesContainer } from "../../Styles/common";
 
-
-
-const About = (props,ref) => {
+const About = (props, ref) => {
   const matchesMedium = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Container ref={ref}>
@@ -31,13 +31,14 @@ const About = (props,ref) => {
 
       <AboutItem matches={matchesMedium}>
         <AboutItemImageContaimer matches={matchesMedium}>
-          <AboutItemImage matches={matchesMedium} src={"./images/About us page-bro.png"} />
+          <AboutItemImage
+            matches={matchesMedium}
+            src={"./images/About us page-bro.png"}
+          />
         </AboutItemImageContaimer>
         <AboutItemContent matches={matchesMedium}>
           {/* <AboutItemTitle>our special deshes</AboutItemTitle> */}
-          <AboutItemTitle matches={matchesMedium}>
-            about us
-          </AboutItemTitle>
+          <AboutItemTitle matches={matchesMedium}>about us</AboutItemTitle>
           <AboutItemDescription>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
             sequi placeat natus at iste minima autem, nisi magnam. Itaque
@@ -66,7 +67,6 @@ const About = (props,ref) => {
       </AboutItem>
     </Container>
   );
-}
-
+};
 
 export default React.forwardRef(About);

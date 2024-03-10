@@ -1,5 +1,5 @@
 import React from 'react'
-import { FooterItemPaper, FooterItemContainer, SectionItemDetails, SectionItemName } from '../../Styles/footer'
+import { FooterItemPaper, FooterItemContainer, SectionItemDetails, SectionItemName } from '../../Styles'
 import { useMediaQuery } from '@mui/material';
 import { theme } from '../../Styles/themes';
 

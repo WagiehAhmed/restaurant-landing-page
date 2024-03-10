@@ -23,7 +23,7 @@ import {
   NavActions,
   NavItem,
   NavItems,
-} from "../../Styles/appbar";
+} from "../../Styles";
 
 import { Menu, MenuItem } from "@mui/material";
 

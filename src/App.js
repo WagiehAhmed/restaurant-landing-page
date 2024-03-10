@@ -8,7 +8,7 @@ import Reviews from "./components/reviews";
 import Order from "./components/order";
 import { useRef } from "react";
 import Footer from "./components/footer";
-import { CustomAnimationBox } from "./Styles/common";
+import { CustomAnimationBox } from "./Styles";
 
 
 function App() {

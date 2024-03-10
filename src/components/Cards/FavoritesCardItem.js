@@ -7,7 +7,7 @@ import {
   CustomTypography,
   IconContainer,
   Image,
-} from "../../Styles/appbar";
+} from "../../Styles";
 import { MenuItem, Stack } from "@mui/material";
 
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";

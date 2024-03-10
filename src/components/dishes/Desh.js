@@ -8,20 +8,17 @@ import {
   DeshContainer,
   DeshName,
   IconContainer,
-} from "../../Styles/deshes";
+  AddToCardIconContainer,
+  AddToFavoriteIconContainer,
+  DeshCardContent,
+} from "../../Styles";
 import { Rating } from "@mui/material";
-import { DeshCardContent } from "./../../Styles/deshes/index";
 
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import {
-  AddToCardIconContainer,
-  AddToFavoriteIconContainer,
-} from "../../Styles/common";
 import { useStoreContext } from "../../hooks/useStoreContext";
 
 export default function Desh({ item, matches }) {
-
   //store
   const { orders, favorites, dispatch } = useStoreContext();
 
@@ -30,7 +27,7 @@ export default function Desh({ item, matches }) {
     if (orders.includes(item)) {
       dispatch({ type: "deleteFromOrders", payload: item });
     } else {
-      dispatch({ type: "addToOreders", payload: {...item,count:1} });
+      dispatch({ type: "addToOreders", payload: item });
     }
   };
 
@@ -54,8 +51,14 @@ export default function Desh({ item, matches }) {
           <Rating value={item.rating} precision={1} />
         </DeshCardContent>
         <DeshActions>
-          <DeshActionsPrice variant="text">{item.price}</DeshActionsPrice>
-          {/* <DeshActionsAddToCard size="small">add to card</DeshActionsAddToCard> */}
+          <DeshActionsAddToCard
+            onClick={() => {
+              addToFavorites(item);
+            }}
+          >
+            add to card
+          </DeshActionsAddToCard>
+            <DeshActionsPrice variant="text">{item.price}$</DeshActionsPrice>
         </DeshActions>
 
         <AddToCardIconContainer

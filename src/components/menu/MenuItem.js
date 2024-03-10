@@ -11,15 +11,13 @@ import {
   MenuItemContainer,
   MenuItemDescription,
   MenuItemName,
-} from "../../Styles/menu";
+  AddToCardIconContainer,
+  AddToFavoriteIconContainer,
+} from "../../Styles";
 import { Rating, useMediaQuery } from "@mui/material";
 
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import {
-  AddToCardIconContainer,
-  AddToFavoriteIconContainer,
-} from "../../Styles/common";
 import { useStoreContext } from "../../hooks/useStoreContext";
 
 export default function MenuItem({ item }) {
@@ -28,17 +26,17 @@ export default function MenuItem({ item }) {
   //store
   const { orders, favorites, dispatch } = useStoreContext();
 
-  // adding to orders
+ 
+  //adding to orders
   const addToOrders = (item) => {
     if (orders.includes(item)) {
       dispatch({ type: "deleteFromOrders", payload: item });
     } else {
-      dispatch({ type: "addToOreders", payload: {...item,count:1} });
+      dispatch({ type: "addToOreders", payload: item });
     }
   };
 
-
-  // adding to favorites 
+  //adding to favorites
   const addToFavorites = (item) => {
     if (favorites.includes(item)) {
       dispatch({ type: "deleteFromFavorites", payload: item });
@@ -51,18 +49,20 @@ export default function MenuItem({ item }) {
       <MenuItemCard elevation={5}>
         <MenuItemCardMedia image={item.image} title="desh media" />
         <MenuItemCardContent>
-          <Rating value={item.rating} precision={1} />
           <MenuItemName gutterBottom variant="h5" component="div">
             {item.name}
           </MenuItemName>
+          <Rating value={item.rating} precision={1} />
           <MenuItemDescription variant="body1">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </MenuItemDescription>
         </MenuItemCardContent>
+
+        
         <MenuItemActions>
-          {/* <MenuItemActionsAddToCard size="small">add to card</MenuItemActionsAddToCard> */}
+          <MenuItemActionsAddToCard onClick={()=>{addToOrders(item)}}>add to card</MenuItemActionsAddToCard>
           <MenuItemActionsPrice variant="text">
-            {item.price}
+            {item.price}$
           </MenuItemActionsPrice>
         </MenuItemActions>
 

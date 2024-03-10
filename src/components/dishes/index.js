@@ -1,12 +1,11 @@
 import React from "react";
 import {
   Container,
-  DeshesContainer,
-} from "../../Styles/deshes";
+  DeshesContainer,SectionSubTitle, SectionTitle, TitlesContainer 
+} from "../../Styles";
 import Desh from "./Desh";
 import { useMediaQuery } from "@mui/material";
 import { theme } from './../../Styles/themes';
-import { SectionSubTitle, SectionTitle, TitlesContainer } from "../../Styles/common";
 
 const Deshes = (props,ref) => {
   const matchesMedium = useMediaQuery(theme.breakpoints.down("md"));
@@ -17,7 +16,7 @@ const Deshes = (props,ref) => {
       image: "./images/1.jpg",
       price: 100,
       rating:2,
-    
+      count:1,
     },
     {
       id:2,
@@ -25,7 +24,7 @@ const Deshes = (props,ref) => {
       image: "./images/2.jpg",
       price: 10,
       rating:3,
-    
+      count:1,
     },
     {
       id:3,
@@ -33,7 +32,7 @@ const Deshes = (props,ref) => {
       image: "./images/3.jpg",
       price: 20,
       rating:2,
-    
+      count:1,
     },
     {
       id:4,
@@ -41,7 +40,7 @@ const Deshes = (props,ref) => {
       image: "./images/4.jpg",
       price: 30,
       rating:1,
-    
+      count:1,
     },
     {
       id:5,
@@ -49,7 +48,7 @@ const Deshes = (props,ref) => {
       image: "./images/5.jpg",
       price: 140,
       rating:4,
-    
+      count:1,
     },
     {
       id:6,
@@ -57,7 +56,7 @@ const Deshes = (props,ref) => {
       image: "./images/6.jpg",
       price: 50,
       rating:1,
-    
+      count:1,
     },
   ];
   return (
