@@ -53,7 +53,7 @@ export default function Desh({ item, matches }) {
         <DeshActions>
           <DeshActionsAddToCard
             onClick={() => {
-              addToFavorites(item);
+              addToOrders(item);
             }}
           >
             add to card

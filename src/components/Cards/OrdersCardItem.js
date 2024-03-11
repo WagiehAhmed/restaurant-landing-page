@@ -19,20 +19,15 @@ const OrdersCardItem = ({ item, setTotalCount }) => {
   //store
   const { dispatch } = useStoreContext();
 
-  // item count
-  // const [count, setCount] = useState(item.count);
-
   //increment function
   const increment = () => {
-    // setCount((pre) => pre + 1);
     item.count += 1;
     setTotalCount((pre) => pre + 1);
   };
 
   //decrement function
   const decrement = () => {
-    if (item.count > 0) {
-      // setCount((pre) => pre - 1);
+    if (item.count > 1) {
       item.count -= 1;
       setTotalCount((pre) => pre > 0 && pre - 1);
     }
