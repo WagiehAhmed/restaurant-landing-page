@@ -56,7 +56,7 @@ const OrdersCardItem = ({ item, setTotalCount }) => {
       <CardItemContent>
         <CustomTypography className="item-name">{item.name}</CustomTypography>
         <CustomTypography className="item-price">{item.price}$</CustomTypography>
-        <Stack direction="row" justifyContent="flex-start" alignItems="center">
+        <Stack sx={{width:"110px",borderRadius:"25px",padding:"0px",flexDirection:"row", justifyContent:"space-between",alignItems:"center"}}>
           <IconContainer
             className="decrement"
             onClick={() => {

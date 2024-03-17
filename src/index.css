@@ -18,14 +18,16 @@ code {
   animation-timing-function: linear;
   animation-timeline: scroll(y);
 }
-
-@keyframes ffff {
+ 
+/*@keyframes ffff {
   0% {
-    /* background-color: red; */
-    transform: scale(0,1);
+    transform: scale(0, 1);
   }
   100% {
-    /* background-color: green; */
-    transform: scale(1,1);
+    transform: scale(1, 1);
   }
-}
+} */
+
+/* * {
+  box-sizing: border-box !important;
+} */

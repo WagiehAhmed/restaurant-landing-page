@@ -1,8 +1,28 @@
-import { Box, Button, Stack, Typography, styled ,Paper,Grid,CardMedia,CardContent,Link,Toolbar,Drawer,Avatar,IconButton,List,CardActions,TextField,Card,FormControl} from "@mui/material";
+import {
+  Box,
+  Button,
+  Stack,
+  Typography,
+  styled,
+  Paper,
+  Grid,
+  CardMedia,
+  CardContent,
+  Link,
+  Toolbar,
+  Drawer,
+  Avatar,
+  IconButton,
+  List,
+  CardActions,
+  TextField,
+  Card,
+  FormControl,
+  ListItemText,
+  ListItem,
+} from "@mui/material";
 import { colors } from "./themes";
 import { CustomAnimationBoxAnimation } from "../animations";
-
-
 
 // about-----------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
@@ -149,6 +169,11 @@ export const IconContainer = styled(IconButton)(({ matches }) => ({
   backgroundColor: `${colors.iconContainer}`,
   display: "inline-flex",
 
+  "&.increment,&.decrement": {
+    margin:"0px",
+    backgroundColor: "white",
+  },
+  
   "&.menu-icon": {
     display: matches ? "inline-flex" : "none",
   },
@@ -166,9 +191,6 @@ export const IconContainer = styled(IconButton)(({ matches }) => ({
     bottom: "0px",
     right: "0px",
   },
-  "&.increment,&.decrement": {
-    backgroundColor: "white",
-  },
   "&:hover": {
     backgroundColor: `${colors.green}`,
     color: `${colors.white}`,
@@ -181,6 +203,7 @@ export const CardItemContainer = styled(Paper)(() => ({
   display: "flex",
   width: "300px",
   margin: "10px",
+  padding: "10px",
   flexDirection: "row",
   justifyContent: "center",
   backgroundColor: "white",
@@ -193,6 +216,8 @@ export const CardItemContainer = styled(Paper)(() => ({
 
 export const CardItemImage = styled(Box)(() => ({
   width: "30%",
+  borderRadius:"15px",
+  overflow:"hidden",
   // border:"2px solid green",
 }));
 export const Image = styled("img")(({ src }) => ({
@@ -203,6 +228,7 @@ export const Image = styled("img")(({ src }) => ({
 }));
 export const CardItemContent = styled(Stack)(() => ({
   width: "70%",
+  paddingLeft:"10px",
   // border:"2px solid blue",
 }));
 
@@ -606,20 +632,6 @@ export const MenuItemActionsAddToCard = styled(Button)(() => ({
 //   },
 // }));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export const TitlesContainer = styled(Box)(() => ({
   padding: "15px 0px",
   // border:"5px solid red"
@@ -640,7 +652,6 @@ export const SectionSubTitle = styled(Typography)(() => ({
   textAlign: "center",
 }));
 
-
 export const CustomAnimationBox = styled(Box)(() => ({
   width: "100%",
   height: "5px",
@@ -655,15 +666,13 @@ export const CustomAnimationBox = styled(Box)(() => ({
   animationTimeline: "scroll(y)",
 }));
 
-
-
 export const AddToCardIconContainer = styled(IconButton)(() => ({
   position: "absolute",
   top: "15px",
   right: "-50px",
   width: "45px",
   height: "45px",
-  transition:"0.5s ease",
+  transition: "0.5s ease",
   backgroundColor: `${colors.iconContainer}`,
   color: `${colors.primaryText}`,
 
@@ -683,7 +692,7 @@ export const AddToFavoriteIconContainer = styled(IconButton)(() => ({
   left: "-50px",
   width: "45px",
   height: "45px",
-  transition:"0.5s ease",
+  transition: "0.5s ease",
   backgroundColor: `${colors.iconContainer}`,
   color: `${colors.primaryText}`,
 
@@ -698,5 +707,136 @@ export const AddToFavoriteIconContainer = styled(IconButton)(() => ({
   },
 }));
 
+// forms section ...........................................................................
+export const CustomForm = styled("form")(({ sizes }) => ({
+  width: sizes.xs ? "90%" : "25%",
+  minWidth: sizes.xs ? "90%" : "350px",
+  maxWidth: "100%",
+  margin: "0px auto",
+  borderRadius: "10px",
+  boxShadow:"rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px",
+  // border: "2px solid green",
+
+  "&.center-form": {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+   backgroundColor:"white",
+     // border: "2px solid green",
+  },
+
+  "&.dialog-form": {
+    width: "100%",
+  },
+}));
+
+export const CustomFormControl = styled(FormControl)(({ sizes }) => ({
+  boxSizing: "border-box",
+  width: "100%",
+  height: "100%",
+  borderRadius: "8px",
+  padding: sizes.md ? "10px" : "20px",
+  //   boxShadow: "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px",
+  // border: "2px solid red",
+}));
+
+// export const CustomFormLabel = styled(FormLabel)(() => ({
+//   textAlign: "center",
+//   padding: "10px",
+//   margin: "10px 0px",
+//   // border: "2px solid red",
+//   "&::first-letter": {
+//     textTransform: "capitalize",
+//   },
+//   "&.new-account": {
+//     fontWeight: "bold",
+//   },
+// }));
+
+// export const CustomFormControlLabel = styled(FormControlLabel)(() => ({
+//   textTransform: "capitalize",
+//   padding: "0px",
+//   margin: "5px 0px",
+//   // border: "2px solid red",
+// }));
+
+export const CustomTextFeild = styled(TextField)(() => ({
+  flexGrow: 1,
+  marginBottom: "15px",
+  color: "secondary",
+  borderRadius: "50px",
+  //   border:"2px solid green",
+  "& .MuiInputBase-root": {
+    borderRadius: "50px",
+  },
+  "& .MuiInputBase-input": {
+    padding: "10px ",
+    borderRadius: "50px",
+  },
+
+  "& label.Mui-focused": {},
+
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {},
+    "&:hover fieldset": {
+      margin: "-1px",
+    },
+    "&.Mui-focused fieldset": {
+      margin: "-1px",
+    },
+  },
+
+  "&.multiline": {
+    borderRadius: "25px",
+    "& .MuiInputBase-root": {
+      borderRadius: "25px",
+    },
+    "& .MuiInputBase-input": {
+      padding: "10px ",
+      borderRadius: "25px",
+    },
+  },
+}));
+
+export const CustomButton = styled(Button)(() => ({
+  textTransform: "capitalize",
+  width: "fit-content",
+  margin: "0px auto",
+  padding:"5px 20px",
+  borderRadius:"25px",
+
+  backgroundColor: `${colors.green}`,
+  color:"white",
+  // color: ,
+  // backgroundColor: ,
+  "&:hover": {
+    backgroundColor:`${colors.green}`,
+    scale: "1.05",
+  },
+}));
+
+
+
+
+export const CustomList = styled(List)(() => ({
+  boxSizing: "border-box",
+  // border: "2px solid red",
+  color: "white",
+}));
+
+export const CustomListItem = styled(ListItem)(() => ({
+  boxSizing: "border-box",
+  // border: "2px solid red",
+  color: "white",
+}));
+
+export const CustomListItemText = styled(ListItemText)(() => ({
+  boxSizing: "border-box",
+  color: "white",
+  // fontFamily: "Rubik",
+  textTransform: "capitalize",
+  // border:"2px solid red",
+}));
 
 
